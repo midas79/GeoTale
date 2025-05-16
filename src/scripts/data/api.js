@@ -12,9 +12,7 @@ class StoryAPI {
   static async register({ name, email, password }) {
     const response = await fetch(API_ENDPOINT.REGISTER, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, password }),
     });
     return response.json();
@@ -23,9 +21,7 @@ class StoryAPI {
   static async login({ email, password }) {
     const response = await fetch(API_ENDPOINT.LOGIN, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
     });
     return response.json();
@@ -37,9 +33,7 @@ class StoryAPI {
     url.searchParams.append('size', size);
 
     const response = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}` },
     });
     return response.json();
   }
@@ -55,9 +49,7 @@ class StoryAPI {
 
     const response = await fetch(API_ENDPOINT.ADD_STORY, {
       method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}` },
       body: formData,
     });
     return response.json();
@@ -65,9 +57,7 @@ class StoryAPI {
 
   static async getStoryById(id, token) {
     const response = await fetch(API_ENDPOINT.DETAIL_STORY(id), {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}` },
     });
     return response.json();
   }

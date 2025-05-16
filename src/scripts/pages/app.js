@@ -3,6 +3,7 @@ import { getActivePathname } from '../routes/url-parser';
 import auth from '../utils/middleware';
 import { setupSkipToContent } from '../utils/skipToContent';
 
+
 class App {
   #content = null;
   #drawerButton = null;
@@ -79,6 +80,14 @@ class App {
 
       setupSkipToContent();
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const subscribeButton = document.getElementById('subscribe-btn');
+      const unsubscribeButton = document.getElementById('unsubscribe-btn');
+
+      subscribeButton.addEventListener('click', subscribe);
+      unsubscribeButton.addEventListener('click', unsubscribe);
+    });
   }
 }
 
