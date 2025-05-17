@@ -198,7 +198,7 @@ export function generateStoryDetailTemplate({
   const imagesHtml = evidenceImages.reduce(
     (accumulator, evidenceImage) =>
       accumulator.concat(generateStoryDetailImageTemplate(evidenceImage, title)),
-    '',
+    ''
   );
 
   return `

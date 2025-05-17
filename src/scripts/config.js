@@ -6,8 +6,8 @@ const CONFIG = {
       'BCCs2eonMI-6H2ctvFaWg-UYdDv387Vno_bzUzALpB442r2lCnsHmtrx8biyPi_E-1fSGABK_Qs_GlvPoJJqxbk',
   },
   NOTIFICATION_ENDPOINTS: {
-    SUBSCRIBE: "/notifications/subscribe",
-    UNSUBSCRIBE: "/notifications/subscribe", // Same endpoint but using DELETE method
+    SUBSCRIBE: '/notifications/subscribe',
+    UNSUBSCRIBE: '/notifications/subscribe', // Same endpoint but using DELETE method
   },
 };
 

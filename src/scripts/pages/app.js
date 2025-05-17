@@ -3,7 +3,6 @@ import { getActivePathname } from '../routes/url-parser';
 import auth from '../utils/middleware';
 import { setupSkipToContent } from '../utils/skipToContent';
 
-
 class App {
   #content = null;
   #drawerButton = null;

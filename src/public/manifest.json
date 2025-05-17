@@ -1,8 +1,8 @@
 {
   "start_url": "/#/",
   "scope": "/",
-  "name": "Geotale",
-  "short_name": "Geotale",
+  "name": "GeoTale",
+  "short_name": "GeoTale",
   "description": "Your stories, Your voice.",
   "display": "standalone",
   "background_color": "#FFFFFF",
@@ -41,37 +41,37 @@
   ],
   "screenshots": [
     {
-      "src": "images/screenshots/CityCareApp_001.png",
+      "src": "images/screenshots/GeoTale-001.png",
       "sizes": "1920x1043",
       "type": "image/png",
       "form_factor": "wide"
     },
     {
-      "src": "images/screenshots/CityCareApp_002.png",
+      "src": "images/screenshots/GeoTale-002.png",
       "sizes": "1920x1043",
       "type": "image/png",
       "form_factor": "wide"
     },
     {
-      "src": "images/screenshots/CityCareApp_003.png",
+      "src": "images/screenshots/GeoTale-003.png",
       "sizes": "1920x1043",
       "type": "image/png",
       "form_factor": "wide"
     },
     {
-      "src": "images/screenshots/CityCareApp_004.png",
+      "src": "images/screenshots/GeoTale-004.png",
       "sizes": "1080x2280",
       "type": "image/png",
       "form_factor": "narrow"
     },
     {
-      "src": "images/screenshots/CityCareApp_005.png",
+      "src": "images/screenshots/GeoTale-005.png",
       "sizes": "1080x2280",
       "type": "image/png",
       "form_factor": "narrow"
     },
     {
-      "src": "images/screenshots/CityCareApp_006.png",
+      "src": "images/screenshots/GeoTale-006.png",
       "sizes": "1080x2280",
       "type": "image/png",
       "form_factor": "narrow"
@@ -79,9 +79,9 @@
   ],
   "shortcuts": [
     {
-      "name": "Laporan Baru",
-      "short_name": "Baru",
-      "description": "Membuat laporan kerusakan baru.",
+      "name": "New Story",
+      "short_name": "New",
+      "description": "Make a new story.",
       "url": "/#/?source=pwa#/new",
       "icons": [
         {
@@ -92,10 +92,10 @@
       ]
     },
     {
-      "name": "Lihat Laporan",
-      "short_name": "Lihat",
-      "description": "Melihat laporan kerusakan yang sudah ada.",
-      "url": "/#/?source=pwa#/list",
+      "name": "See Story",
+      "short_name": "See",
+      "description": "See your stories.",
+      "url": "/#/?source=pwa#/stories",
       "icons": [
         {
           "src": "images/icons/logo-x512.png",

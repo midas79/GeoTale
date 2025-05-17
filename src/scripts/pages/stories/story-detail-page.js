@@ -95,14 +95,14 @@ class StoryDetailPage {
 
           if (!isSaved) {
             await Database.saveStory({ ...story, isCached: false }); // call from Database
-            alert('✅ Story saved.');
+            alert('Story saved.');
           } else {
             await Database.removeStory(story.id);
-            alert('✅ Story removed from bookmarks.');
+            alert('Story removed from bookmarks.');
           }
 
           const savedNow = await isStorySaved(storyId);
-          bookmarkButton.textContent = savedNow ? '🗑️ Remove Bookmark' : 'Save Story';
+          bookmarkButton.textContent = savedNow ? 'Remove Bookmark' : 'Save Story';
         });
       }
 
@@ -112,13 +112,13 @@ class StoryDetailPage {
           const isSaved = await isStorySaved(storyId);
 
           if (!isSaved) {
-            alert('❗ Story is not saved yet. Please save it first to receive notifications.');
+            alert('Story is not saved yet. Please save it first to receive notifications.');
             return;
           }
 
           const registration = await navigator.serviceWorker.getRegistration();
           if (registration) {
-            registration.showNotification('✅ Story Saved', {
+            registration.showNotification('Story Saved', {
               body: `"${story.name}" has been saved to your bookmarks.`,
               icon: '/icons/icon-192x192.png',
               tag: 'story-saved',

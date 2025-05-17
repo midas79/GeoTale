@@ -6,7 +6,7 @@ const OBJECT_STORE_NAME = 'stories';
 
 const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
   upgrade(db, oldVersion, newVersion, transaction) {
-    // Jika object store 'stories' belum ada, buat sekarang
+    // If the 'stories' object store doesn't exist, create it now
     if (!db.objectStoreNames.contains(OBJECT_STORE_NAME)) {
       db.createObjectStore(OBJECT_STORE_NAME, { keyPath: 'id' });
     }
@@ -15,33 +15,33 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
 
 const Database = {
   async saveStory(story) {
-    // Menyimpan atau update story berdasarkan id
+    // Save or update story by id
     return (await dbPromise).put(OBJECT_STORE_NAME, story);
   },
 
   async getStoryById(id) {
-    // Ambil story berdasarkan id
+    // Get story by id
     return (await dbPromise).get(OBJECT_STORE_NAME, id);
   },
 
   async getAllStories() {
-    // Ambil semua story dari object store
+    // Get all stories from the object store
     return (await dbPromise).getAll(OBJECT_STORE_NAME);
   },
 
   async removeStory(id) {
-    // Hapus story berdasarkan id
+    // Delete story by id
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);
   },
 };
 
-// Fungsi tambahan untuk mendapatkan story yang disimpan manual (bukan cache)
+// Additional function to get stories saved manually (not cached)
 export async function getSavedStories() {
   const all = await (await dbPromise).getAll(OBJECT_STORE_NAME);
   return all.filter(story => story.isCached !== true);
 }
 
-// Fungsi cek apakah story sudah disimpan manual (bukan cache)
+// Function to check if a story has been saved manually (not cached)
 export async function isStorySaved(id) {
   const story = await (await dbPromise).get(OBJECT_STORE_NAME, id);
   return story && story.isCached !== true;

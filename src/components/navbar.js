@@ -21,6 +21,7 @@ class Navbar {
           ? `
         <li><a href="#/stories"><i class="fas fa-book"></i> Stories</a></li>
         <li><a href="#/stories/add"><i class="fas fa-plus"></i> Add Story</a></li>
+        <li><a href="#/bookmark"><i class="fas fa-bookmark"></i> Bookmark</a></li>
         <li><a href="#/about"><i class="fas fa-info-circle"></i> About</a></li>
         ${
           isPushSupported
@@ -64,11 +65,11 @@ class Navbar {
             if (isSubscribed) {
               // If already subscribed, unsubscribe
               await NotificationHelper.unsubscribe();
-              this._showToast('Notifikasi telah dinonaktifkan');
+              this._showToast('Notifications have been disabled');
             } else {
               // If not subscribed, subscribe
               await NotificationHelper.subscribe();
-              this._showToast('Notifikasi telah diaktifkan');
+              this._showToast('Notifications have been enabled');
             }
 
             // Update button UI after subscription change
