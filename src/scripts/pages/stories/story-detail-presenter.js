@@ -20,32 +20,31 @@ class StoryDetailPresenter {
     this.#view = view;
   }
 
-  async getStoryDetail(id) {
-    try {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        throw new Error('Token not found');
-      }
+  
 
-      const response = await StoryAPI.getStoryById(id, token);
-      if (response.error) {
-        throw new Error(response.message);
-      }
-
-      return response.story;
-    } catch (error) {
-      await Swal.fire({
-        icon: 'error',
-        title: 'Failed to Load Story',
-        text: error.message,
-      });
-
-      if (error.message === 'Token not found') {
-        window.location.hash = '#/login';
-      }
-      throw error;
+async getStoryDetail(id) {
+  try {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      throw new Error('Token not found');
     }
+
+    const response = await StoryAPI.getStoryById(id, token);
+    return response.story;
+  } catch (error) {
+    await Swal.fire({
+      icon: 'error',
+      title: 'Failed to Load Story',
+      text: error.message || 'Unknown error',
+    });
+
+    if (error.message === 'Token not found') {
+      window.location.hash = '#/login';
+    }
+
+    throw error;
   }
+}
 
   initMap(container) {
     this.#vectorSource = new VectorSource();

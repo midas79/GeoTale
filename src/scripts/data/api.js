@@ -56,10 +56,18 @@ class StoryAPI {
   }
 
   static async getStoryById(id, token) {
-    const response = await fetch(API_ENDPOINT.DETAIL_STORY(id), {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    return response.json();
+    try {
+      const response = await fetch(API_ENDPOINT.DETAIL_STORY(id), {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      console.error('Get story detail error:', error);
+      return { error: true, message: error.message };
+    }
   }
 }
 

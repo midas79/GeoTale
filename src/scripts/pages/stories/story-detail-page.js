@@ -10,6 +10,9 @@ import Point from 'ol/geom/Point';
 import { Style, Icon } from 'ol/style';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
+import Database from '../../data/database';
+import StoryAPI from '../../data/api';
+import { isStorySaved } from '../../data/database';
 
 class StoryDetailPage {
   #presenter = null;
@@ -36,8 +39,15 @@ class StoryDetailPage {
     const storyId = url.split('/')[2];
     const contentContainer = document.getElementById('storyContent');
 
+    this.#presenter = new StoryDetailPresenter(storyId, {
+      view: this,
+      apiModel: StoryAPI,
+      dbModel: Database,
+    });
+
     try {
       const story = await this.#presenter.getStoryDetail(storyId);
+      const saved = await isStorySaved(storyId);
 
       contentContainer.innerHTML = `
                 <h1 class="detail-story__title">${story.name}</h1>
@@ -65,15 +75,62 @@ class StoryDetailPage {
                         </div>
                         <div id="map" class="detail-story__map"></div>
                     </div>
+                    <div class="bookmark-actions" style="margin-top: 1rem;">
+                        <button id="bookmark-button" class="custom-btn">
+                          ${saved ? 'Remove Bookmark' : 'Save Story'}
+                        </button>
+                        <button id="notify-button" class="custom-btn">Try Notify Me</button>
+                    </div>
                 `
                     : ''
                 }
+                
             `;
+      // after contentContainer.innerHTML = ...;
 
-      if (story.lat && story.lon) {
-        const mapContainer = document.getElementById('map');
-        this.#initMap(mapContainer, story.lat, story.lon);
-        this.#addMarker(story.lat, story.lon, story);
+      const bookmarkButton = document.getElementById('bookmark-button');
+      if (bookmarkButton) {
+        bookmarkButton.addEventListener('click', async () => {
+          const isSaved = await isStorySaved(storyId);
+
+          if (!isSaved) {
+            await Database.saveStory({ ...story, isCached: false }); // call from Database
+            alert('✅ Story saved.');
+          } else {
+            await Database.removeStory(story.id);
+            alert('✅ Story removed from bookmarks.');
+          }
+
+          const savedNow = await isStorySaved(storyId);
+          bookmarkButton.textContent = savedNow ? '🗑️ Remove Bookmark' : 'Save Story';
+        });
+      }
+
+      const notifyButton = document.getElementById('notify-button');
+      if (notifyButton) {
+        notifyButton.addEventListener('click', async () => {
+          const isSaved = await isStorySaved(storyId);
+
+          if (!isSaved) {
+            alert('❗ Story is not saved yet. Please save it first to receive notifications.');
+            return;
+          }
+
+          const registration = await navigator.serviceWorker.getRegistration();
+          if (registration) {
+            registration.showNotification('✅ Story Saved', {
+              body: `"${story.name}" has been saved to your bookmarks.`,
+              icon: '/icons/icon-192x192.png',
+              tag: 'story-saved',
+            });
+          }
+        });
+
+        if (story.lat && story.lon) {
+          const mapContainer = document.getElementById('map');
+          this.#initMap(mapContainer, story.lat, story.lon);
+          this.#addMarker(story.lat, story.lon, story);
+        }
       }
     } catch (error) {
       contentContainer.innerHTML = `
