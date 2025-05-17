@@ -17,7 +17,7 @@ body {
 }
 
 header {
-  background: linear-gradient(to right, #6a11cb, #2575fc);
+  background: linear-gradient(to right, #e6f0ff, #f9fafb);
 }
 
 .main-header {
@@ -34,7 +34,7 @@ header {
   font-size: 1.125rem;
   font-weight: bold;
   text-decoration: none;
-  color: #ffffff;
+  color: black;
 }
 
 .navigation-drawer {
@@ -68,7 +68,7 @@ header {
 
   font-weight: bold;
   font-size: 28px;
-  color: #ffffff;
+  color: black;
 
   cursor: pointer;
 }
@@ -836,7 +836,147 @@ input[type='file']:focus {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
+@media screen and (width > 1000px) {
+  .navigation-drawer {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    width: auto;
+    padding: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .drawer-button {
+    display: none;
+  }
+
+  .hero-image img {
+    height: 40vh;
+    /* lebih kecil untuk hp kecil */
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .home-heading {
+    font-size: 2rem;
+  }
+
+  .home-description,
+  .about-header p {
+    font-size: 1rem;
+  }
+
+  .feature-box {
+    padding: 24px 16px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .entry-page__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-item__image {
+    height: 180px;
+  }
+
+  .story-item__content {
+    padding: 16px;
+  }
+
+  .hero-image img {
+    height: 40vh;
+    /* lebih kecil untuk hp kecil */
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .home-heading {
+    font-size: 2rem;
+  }
+
+  .home-description,
+  .about-header p {
+    font-size: 1rem;
+  }
+
+  .feature-box {
+    padding: 24px 16px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .entry-page__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-item__image {
+    height: 180px;
+  }
+
+  .story-item__content {
+    padding: 16px;
+  }
+
+  .hero-image img {
+    height: 40vh;
+    /* lebih kecil untuk hp kecil */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home-heading {
+    font-size: 2rem;
+  }
+
+  .home-description,
+  .about-header p {
+    font-size: 1rem;
+  }
+
+  .feature-box {
+    padding: 24px 16px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .entry-page__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-item__image {
+    height: 180px;
+  }
+
+  .story-item__content {
+    padding: 16px;
+  }
+
+  .hero-image img {
+    height: 40vh;
+    /* lebih kecil untuk hp kecil */
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .hero-image img {
+    height: 40vh;
+    /* lebih kecil untuk hp kecil */
+  }
+
   .stories__list {
     grid-template-columns: 1fr;
   }
@@ -850,6 +990,11 @@ input[type='file']:focus {
   .add-story__form {
     padding: 15px;
   }
+}
+
+/* Nav-list font color black */
+.nav-list li a {
+  color: #000 !important;
 }
 
 .photo-input-container {
@@ -1090,9 +1235,15 @@ input[type='file']:focus {
 }
 
 .hero-image img {
+  width: auto;
   max-width: 100%;
-  height: auto;
-  border-radius: 12px;
+  height: 280px;
+  max-height: 40vh;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Buttons */
@@ -1324,4 +1475,155 @@ input[type='file']:focus {
 
 #main-content:focus {
   outline: none;
+}
+
+/* Bookmark Actions Container */
+.bookmark-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding: 16px 0;
+  border-radius: 10px;
+  background: #f7fafc;
+  box-shadow: 0 2px 12px rgba(49, 130, 206, 0.06);
+}
+
+/* Custom Button Style for Bookmark & Notify */
+.bookmark-actions .custom-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background-color: #3182ce;
+  color: #fff;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    box-shadow 0.2s,
+    transform 0.15s;
+  box-shadow: 0 2px 8px rgba(49, 130, 206, 0.1);
+}
+
+.bookmark-actions .custom-btn:hover,
+.bookmark-actions .custom-btn:focus-visible {
+  background-color: #2563eb;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 20px rgba(49, 130, 206, 0.18);
+}
+
+.bookmark-actions .custom-btn:active {
+  transform: scale(0.97);
+}
+
+/* Optional: Icon style inside button */
+.bookmark-actions .custom-btn i {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.1em;
+  margin-right: 4px;
+}
+
+.delete-bookmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #e74c3c;
+  /* Merah terang */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.delete-bookmark:hover {
+  background-color: #c0392b;
+  /* Warna merah lebih gelap saat hover */
+}
+
+.delete-bookmark i {
+  font-size: 1rem;
+}
+
+/* Floating Add Story Button */
+.fab-add-story {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(90deg, #3182ce 0%, #38a169 100%);
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(49, 130, 206, 0.18);
+  font-size: 2rem;
+  text-decoration: none;
+  transition:
+    background 0.3s,
+    box-shadow 0.2s,
+    transform 0.15s;
+}
+
+.fab-add-story:hover,
+.fab-add-story:focus-visible {
+  background: linear-gradient(90deg, #2563eb 0%, #2f855a 100%);
+  box-shadow: 0 8px 32px rgba(49, 130, 206, 0.24);
+  transform: scale(1.07);
+}
+
+/* Not Found Page */
+.not-found {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #e0e7ef 0%, #f8fafc 100%);
+  border-radius: 18px;
+  margin: 48px auto;
+  box-shadow: 0 8px 32px rgba(49, 130, 206, 0.10);
+  padding: 48px 24px;
+  max-width: 480px;
+}
+
+.not-found h1 {
+  font-size: 1.5rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: black;
+  margin-bottom: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.not-found::before {
+  content: "😕";
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 16px;
+  animation: bounce404 1.2s infinite alternate;
+}
+
+@keyframes bounce404 {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-12px);
+  }
 }

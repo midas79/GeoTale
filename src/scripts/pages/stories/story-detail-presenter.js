@@ -28,21 +28,18 @@ class StoryDetailPresenter {
       }
 
       const response = await StoryAPI.getStoryById(id, token);
-      if (response.error) {
-        throw new Error(response.message);
-      }
-
       return response.story;
     } catch (error) {
       await Swal.fire({
         icon: 'error',
         title: 'Failed to Load Story',
-        text: error.message,
+        text: error.message || 'Unknown error',
       });
 
       if (error.message === 'Token not found') {
         window.location.hash = '#/login';
       }
+
       throw error;
     }
   }

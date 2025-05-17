@@ -5,6 +5,8 @@ import AddStoryPage from '../pages/stories/add-story-page';
 import StoryDetailPage from '../pages/stories/story-detail-page';
 import LoginPage from '../pages/auth/login/login-page';
 import RegisterPage from '../pages/auth/register/register-page';
+import BookmarkPage from '../pages/bookmark/bookmark-page';
+import NotFoundPage from '../pages/not-found-page';
 
 const routes = {
   '/': new HomePage(),
@@ -14,6 +16,8 @@ const routes = {
   '/stories/:id': new StoryDetailPage(),
   '/login': new LoginPage(),
   '/register': new RegisterPage(),
+  '/bookmark': new BookmarkPage(),
+  '/404': new NotFoundPage(),
 };
 
 const matchRoute = path => {
@@ -27,7 +31,7 @@ const matchRoute = path => {
     return routes['/stories/:id'];
   }
 
-  return null;
+  return routes['/404'];
 };
 
 export { routes as default, matchRoute };

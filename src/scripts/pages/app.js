@@ -79,6 +79,14 @@ class App {
 
       setupSkipToContent();
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const subscribeButton = document.getElementById('subscribe-btn');
+      const unsubscribeButton = document.getElementById('unsubscribe-btn');
+
+      subscribeButton.addEventListener('click', subscribe);
+      unsubscribeButton.addEventListener('click', unsubscribe);
+    });
   }
 }
 

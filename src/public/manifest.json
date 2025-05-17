@@ -1,0 +1,108 @@
+{
+  "start_url": "/#/",
+  "scope": "/",
+  "name": "GeoTale",
+  "short_name": "GeoTale",
+  "description": "Your stories, Your voice.",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#3182ce",
+  "icons": [
+    {
+      "src": "images/icons/logo-x48.png",
+      "type": "image/png",
+      "sizes": "48x48",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "images/icons/logo-x96.png",
+      "type": "image/png",
+      "sizes": "96x96",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "images/icons/logo-x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "images/icons/logo-x384.png",
+      "type": "image/png",
+      "sizes": "384x384",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "images/icons/logo-x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/screenshots/GeoTale-001.png",
+      "sizes": "1920x1043",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "images/screenshots/GeoTale-002.png",
+      "sizes": "1920x1043",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "images/screenshots/GeoTale-003.png",
+      "sizes": "1920x1043",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "images/screenshots/GeoTale-004.png",
+      "sizes": "1080x2280",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "images/screenshots/GeoTale-005.png",
+      "sizes": "1080x2280",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "images/screenshots/GeoTale-006.png",
+      "sizes": "1080x2280",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "New Story",
+      "short_name": "New",
+      "description": "Make a new story.",
+      "url": "/#/?source=pwa#/new",
+      "icons": [
+        {
+          "src": "images/icons/add-x512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ]
+    },
+    {
+      "name": "See Story",
+      "short_name": "See",
+      "description": "See your stories.",
+      "url": "/#/?source=pwa#/stories",
+      "icons": [
+        {
+          "src": "images/icons/logo-x512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ]
+    }
+  ]
+}
