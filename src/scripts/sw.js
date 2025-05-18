@@ -103,8 +103,8 @@ self.addEventListener('push', event => {
     title: 'Story App',
     options: {
       body: 'You have a new notification',
-      icon: '/icons/icon-192x192.png',
-      badge: '/icons/icon-72x72.png',
+      icon: './icons/icon-192x192.png',
+      badge: './icons/icon-72x72.png',
       data: {},
     },
   };
