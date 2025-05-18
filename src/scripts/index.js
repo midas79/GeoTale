@@ -2,7 +2,6 @@
 import '../styles/styles.css';
 import Navbar from '../components/navbar';
 import App from './pages/app';
-import '../styles/styles.css';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const app = new App({
@@ -24,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
     navigator.serviceWorker
-      .register('/sw.bundle.js')
+      .register(`${window.location.pathname}sw.bundle.js`)
       .then(function (registration) {
         console.log('ServiceWorker registered:', registration);
 
