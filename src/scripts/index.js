@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
     navigator.serviceWorker
-      .register('./sw.bundle.js')
+      .register('/GeoTale/sw.bundle.js')
       .then(function (registration) {
         console.log('ServiceWorker registered:', registration);
 

@@ -1,6 +1,6 @@
 {
-  "start_url": "/#/",
-  "scope": "/",
+  "start_url": "/GeoTale/#/",
+  "scope": "/GeoTale/",
   "name": "GeoTale",
   "short_name": "GeoTale",
   "description": "Your stories, Your voice.",
