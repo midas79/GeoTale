@@ -1627,6 +1627,40 @@ input[type='file']:focus {
     transform: translateY(-12px);
   }
 }
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 96px;
+  right: 32px;
+  min-width: 220px;
+  max-width: 320px;
+  padding: 16px 28px;
+  background: linear-gradient(90deg, #3182ce 0%, #38a169 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(49, 130, 206, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2000;
+  transform: translateY(40px) scale(0.98);
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+}
+
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+/* Optional: Different color for error toast */
+.toast.error {
+  background: linear-gradient(90deg, #dc2626 0%, #f87171 100%);
+}
 :root,
 :host {
   --ol-background-color: white;
