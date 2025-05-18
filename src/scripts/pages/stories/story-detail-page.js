@@ -120,7 +120,7 @@ class StoryDetailPage {
           if (registration) {
             registration.showNotification('Story Saved', {
               body: `"${story.name}" has been saved to your bookmarks.`,
-              icon: '/icons/icon-192x192.png',
+              icon: './icons/icon-192x192.png',
               tag: 'story-saved',
             });
           }
