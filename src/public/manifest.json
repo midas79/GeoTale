@@ -82,7 +82,7 @@
       "name": "New Story",
       "short_name": "New",
       "description": "Make a new story.",
-      "url": "/#/?source=pwa#/new",
+      "url": "/#/stories/add",
       "icons": [
         {
           "src": "images/icons/add-x512.png",
@@ -92,10 +92,10 @@
       ]
     },
     {
-      "name": "See Story",
+      "name": "See Stories",
       "short_name": "See",
       "description": "See your stories.",
-      "url": "/#/?source=pwa#/stories",
+      "url": "/#/stories",
       "icons": [
         {
           "src": "images/icons/logo-x512.png",

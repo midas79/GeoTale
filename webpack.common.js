@@ -12,8 +12,10 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/GeoTale/',
     clean: true,
   },
+
   module: {
     rules: [
       {
