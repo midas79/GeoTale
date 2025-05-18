@@ -1596,7 +1596,7 @@ input[type='file']:focus {
   background: linear-gradient(135deg, #e0e7ef 0%, #f8fafc 100%);
   border-radius: 18px;
   margin: 48px auto;
-  box-shadow: 0 8px 32px rgba(49, 130, 206, 0.10);
+  box-shadow: 0 8px 32px rgba(49, 130, 206, 0.1);
   padding: 48px 24px;
   max-width: 480px;
 }
@@ -1611,7 +1611,7 @@ input[type='file']:focus {
 }
 
 .not-found::before {
-  content: "😕";
+  content: '😕';
   font-size: 4rem;
   display: block;
   margin-bottom: 16px;

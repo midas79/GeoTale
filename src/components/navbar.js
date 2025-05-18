@@ -60,31 +60,31 @@ class Navbar {
           notificationButton.disabled = true;
 
           try {
-        const isSubscribed = await NotificationHelper.isSubscribed();
-        if (isSubscribed) {
-          await NotificationHelper.unsubscribe();
-          if (window.Swal && typeof window.Swal.fire === 'function') {
-            window.Swal.fire('Berhasil', 'Notifikasi telah dinonaktifkan', 'success');
-          } else {
-            Navbar._showToast('Notifikasi telah dinonaktifkan', 'success');
-          }
-        } else {
-          await NotificationHelper.subscribe();
-          if (window.Swal && typeof window.Swal.fire === 'function') {
-            window.Swal.fire('Berhasil', 'Notifikasi telah diaktifkan', 'success');
-          } else {
-            Navbar._showToast('Notifikasi telah diaktifkan', 'success');
-          }
-        }
-        await NotificationHelper.updateSubscriptionButton(notificationButton);
+            const isSubscribed = await NotificationHelper.isSubscribed();
+            if (isSubscribed) {
+              await NotificationHelper.unsubscribe();
+              if (window.Swal && typeof window.Swal.fire === 'function') {
+                window.Swal.fire('Berhasil', 'Notifikasi telah dinonaktifkan', 'success');
+              } else {
+                Navbar._showToast('Notifikasi telah dinonaktifkan', 'success');
+              }
+            } else {
+              await NotificationHelper.subscribe();
+              if (window.Swal && typeof window.Swal.fire === 'function') {
+                window.Swal.fire('Berhasil', 'Notifikasi telah diaktifkan', 'success');
+              } else {
+                Navbar._showToast('Notifikasi telah diaktifkan', 'success');
+              }
+            }
+            await NotificationHelper.updateSubscriptionButton(notificationButton);
           } catch (error) {
-        if (window.Swal && typeof window.Swal.fire === 'function') {
-          window.Swal.fire('Error', error.message, 'error');
-        } else {
-          Navbar._showToast(error.message || 'Terjadi kesalahan', 'error');
-        }
+            if (window.Swal && typeof window.Swal.fire === 'function') {
+              window.Swal.fire('Error', error.message, 'error');
+            } else {
+              Navbar._showToast(error.message || 'Terjadi kesalahan', 'error');
+            }
           } finally {
-        notificationButton.disabled = false;
+            notificationButton.disabled = false;
           }
         });
       }

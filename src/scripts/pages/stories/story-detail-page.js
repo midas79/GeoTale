@@ -93,45 +93,45 @@ class StoryDetailPage {
         bookmarkButton.addEventListener('click', async () => {
           const isSaved = await isStorySaved(storyId);
 
-            if (!isSaved) {
-              await Database.saveStory({ ...story, isCached: false }); // call from Database
-              const registration = await navigator.serviceWorker.getRegistration();
-              if (registration) {
+          if (!isSaved) {
+            await Database.saveStory({ ...story, isCached: false }); // call from Database
+            const registration = await navigator.serviceWorker.getRegistration();
+            if (registration) {
               registration.showNotification('Story Saved', {
                 body: `"${story.name}" has been saved to your bookmarks.`,
                 icon: './icons/icon-192x192.png',
                 tag: 'story-saved',
               });
-              }
-              // Show SweetAlert2 notification
-              import('sweetalert2').then(Swal => {
+            }
+            // Show SweetAlert2 notification
+            import('sweetalert2').then(Swal => {
               Swal.default.fire({
                 icon: 'success',
                 title: 'Saved!',
                 text: `"${story.name}" has been saved to your bookmarks.`,
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
               });
-              });
-            } else {
-              await Database.removeStory(story.id);
-              const registration = await navigator.serviceWorker.getRegistration();
-              if (registration) {
+            });
+          } else {
+            await Database.removeStory(story.id);
+            const registration = await navigator.serviceWorker.getRegistration();
+            if (registration) {
               registration.showNotification('Bookmark Removed', {
                 body: `"${story.name}" has been removed from your bookmarks.`,
                 icon: './icons/icon-192x192.png',
                 tag: 'story-removed',
               });
-              }
-              // Show SweetAlert2 notification
-              import('sweetalert2').then(Swal => {
+            }
+            // Show SweetAlert2 notification
+            import('sweetalert2').then(Swal => {
               Swal.default.fire({
                 icon: 'info',
                 title: 'Removed!',
                 text: `"${story.name}" has been removed from your bookmarks.`,
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
               });
-              });
-            }
+            });
+          }
 
           const savedNow = await isStorySaved(storyId);
           bookmarkButton.textContent = savedNow ? 'Remove Bookmark' : 'Save Story';
@@ -143,36 +143,36 @@ class StoryDetailPage {
         notifyButton.addEventListener('click', async () => {
           const isSaved = await isStorySaved(storyId);
 
-            if (!isSaved) {
+          if (!isSaved) {
             // Use SweetAlert2 for a nicer alert
             import('sweetalert2').then(Swal => {
               Swal.default.fire({
-              icon: 'info',
-              title: 'Not Saved',
-              text: 'Story is not saved yet. Please save it first to receive notifications.',
-              confirmButtonText: 'OK'
+                icon: 'info',
+                title: 'Not Saved',
+                text: 'Story is not saved yet. Please save it first to receive notifications.',
+                confirmButtonText: 'OK',
               });
             });
             return;
-            }
+          }
 
-            const registration = await navigator.serviceWorker.getRegistration();
-            if (registration) {
+          const registration = await navigator.serviceWorker.getRegistration();
+          if (registration) {
             registration.showNotification('Story Saved', {
               body: `"${story.name}" has been saved to your bookmarks.`,
               icon: './icons/icon-192x192.png',
               tag: 'story-saved',
             });
-            }
-            // Show SweetAlert2 notification as well
-            import('sweetalert2').then(Swal => {
+          }
+          // Show SweetAlert2 notification as well
+          import('sweetalert2').then(Swal => {
             Swal.default.fire({
               icon: 'success',
               title: 'Notification Sent',
               text: `"${story.name}" notification has been triggered.`,
-              confirmButtonText: 'OK'
+              confirmButtonText: 'OK',
             });
-            });
+          });
         });
 
         if (story.lat && story.lon) {
