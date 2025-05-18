@@ -59,33 +59,33 @@ class Navbar {
           e.preventDefault();
           notificationButton.disabled = true;
 
-          try {
+            try {
             const isSubscribed = await NotificationHelper.isSubscribed();
             if (isSubscribed) {
               await NotificationHelper.unsubscribe();
               if (window.Swal && typeof window.Swal.fire === 'function') {
-                window.Swal.fire('Berhasil', 'Notifikasi telah dinonaktifkan', 'success');
+              window.Swal.fire('Success', 'Notifications have been disabled', 'success');
               } else {
-                Navbar._showToast('Notifikasi telah dinonaktifkan', 'success');
+              Navbar._showToast('Notifications have been disabled', 'success');
               }
             } else {
               await NotificationHelper.subscribe();
               if (window.Swal && typeof window.Swal.fire === 'function') {
-                window.Swal.fire('Berhasil', 'Notifikasi telah diaktifkan', 'success');
+              window.Swal.fire('Success', 'Notifications have been enabled', 'success');
               } else {
-                Navbar._showToast('Notifikasi telah diaktifkan', 'success');
+              Navbar._showToast('Notifications have been enabled', 'success');
               }
             }
             await NotificationHelper.updateSubscriptionButton(notificationButton);
-          } catch (error) {
+            } catch (error) {
             if (window.Swal && typeof window.Swal.fire === 'function') {
               window.Swal.fire('Error', error.message, 'error');
             } else {
-              Navbar._showToast(error.message || 'Terjadi kesalahan', 'error');
+              Navbar._showToast(error.message || 'An error occurred', 'error');
             }
-          } finally {
+            } finally {
             notificationButton.disabled = false;
-          }
+            }
         });
       }
     }

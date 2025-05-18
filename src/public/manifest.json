@@ -82,7 +82,7 @@
       "name": "New Story",
       "short_name": "New",
       "description": "Make a new story.",
-      "url": "/#/stories/add",
+      "url": "/GeoTale/stories/add",
       "icons": [
         {
           "src": "images/icons/add-x512.png",
@@ -95,7 +95,7 @@
       "name": "See Stories",
       "short_name": "See",
       "description": "See your stories.",
-      "url": "/#/stories",
+      "url": "/GeoTale/stories",
       "icons": [
         {
           "src": "images/icons/logo-x512.png",
