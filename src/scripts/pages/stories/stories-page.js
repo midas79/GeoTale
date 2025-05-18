@@ -31,9 +31,6 @@ class StoriesPage {
 
       <div id="mapWrapper" class="entry-page__map" aria-label="Story location map"></div>
 
-      <a href="#/stories/add" class="fab-button" aria-label="Add new story">
-        <i class="fas fa-plus"></i>
-      </a>
     </section>
   `;
   }

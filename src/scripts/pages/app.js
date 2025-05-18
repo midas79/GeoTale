@@ -52,7 +52,7 @@ class App {
     this.#currentPage = matchRoute(path);
 
     if (!this.#currentPage) {
-      this.#content.innerHTML = '<div class="error-message">Halaman tidak ditemukan</div>';
+      this.#content.innerHTML = '<div class="error-message">Page not found</div>';
       return;
     }
 
