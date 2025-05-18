@@ -59,33 +59,33 @@ class Navbar {
           e.preventDefault();
           notificationButton.disabled = true;
 
-            try {
+          try {
             const isSubscribed = await NotificationHelper.isSubscribed();
             if (isSubscribed) {
               await NotificationHelper.unsubscribe();
               if (window.Swal && typeof window.Swal.fire === 'function') {
-              window.Swal.fire('Success', 'Notifications have been disabled', 'success');
+                window.Swal.fire('Success', 'Notifications have been disabled', 'success');
               } else {
-              Navbar._showToast('Notifications have been disabled', 'success');
+                Navbar._showToast('Notifications have been disabled', 'success');
               }
             } else {
               await NotificationHelper.subscribe();
               if (window.Swal && typeof window.Swal.fire === 'function') {
-              window.Swal.fire('Success', 'Notifications have been enabled', 'success');
+                window.Swal.fire('Success', 'Notifications have been enabled', 'success');
               } else {
-              Navbar._showToast('Notifications have been enabled', 'success');
+                Navbar._showToast('Notifications have been enabled', 'success');
               }
             }
             await NotificationHelper.updateSubscriptionButton(notificationButton);
-            } catch (error) {
+          } catch (error) {
             if (window.Swal && typeof window.Swal.fire === 'function') {
               window.Swal.fire('Error', error.message, 'error');
             } else {
               Navbar._showToast(error.message || 'An error occurred', 'error');
             }
-            } finally {
+          } finally {
             notificationButton.disabled = false;
-            }
+          }
         });
       }
     }

@@ -1665,12 +1665,12 @@ input[type='file']:focus {
 :root,
 :host {
   --ol-background-color: white;
-  --ol-accent-background-color: #F5F5F5;
+  --ol-accent-background-color: #f5f5f5;
   --ol-subtle-background-color: rgba(128, 128, 128, 0.25);
   --ol-partial-background-color: rgba(255, 255, 255, 0.75);
   --ol-foreground-color: #333333;
   --ol-subtle-foreground-color: #666666;
-  --ol-brand-color: #00AAFF;
+  --ol-brand-color: #00aaff;
 }
 
 .ol-box {
@@ -1730,7 +1730,11 @@ input[type='file']:focus {
   font-size: 10px;
   z-index: 11;
   color: var(--ol-foreground-color);
-  text-shadow: -1.5px 0 var(--ol-partial-background-color), 0 1.5px var(--ol-partial-background-color), 1.5px 0 var(--ol-partial-background-color), 0 -1.5px var(--ol-partial-background-color);
+  text-shadow:
+    -1.5px 0 var(--ol-partial-background-color),
+    0 1.5px var(--ol-partial-background-color),
+    1.5px 0 var(--ol-partial-background-color),
+    0 -1.5px var(--ol-partial-background-color);
 }
 
 .ol-scale-text {
@@ -1739,7 +1743,11 @@ input[type='file']:focus {
   text-align: center;
   bottom: 25px;
   color: var(--ol-foreground-color);
-  text-shadow: -1.5px 0 var(--ol-partial-background-color), 0 1.5px var(--ol-partial-background-color), 1.5px 0 var(--ol-partial-background-color), 0 -1.5px var(--ol-partial-background-color);
+  text-shadow:
+    -1.5px 0 var(--ol-partial-background-color),
+    0 1.5px var(--ol-partial-background-color),
+    1.5px 0 var(--ol-partial-background-color),
+    0 -1.5px var(--ol-partial-background-color);
 }
 
 .ol-scale-singlebar {
@@ -1807,30 +1815,34 @@ input[type='file']:focus {
 }
 
 .ol-zoom {
-  top: .5em;
-  left: .5em;
+  top: 0.5em;
+  left: 0.5em;
 }
 
 .ol-rotate {
-  top: .5em;
-  right: .5em;
-  transition: opacity .25s linear, visibility 0s linear;
+  top: 0.5em;
+  right: 0.5em;
+  transition:
+    opacity 0.25s linear,
+    visibility 0s linear;
 }
 
 .ol-rotate.ol-hidden {
   opacity: 0;
   visibility: hidden;
-  transition: opacity .25s linear, visibility 0s linear .25s;
+  transition:
+    opacity 0.25s linear,
+    visibility 0s linear 0.25s;
 }
 
 .ol-zoom-extent {
   top: 4.643em;
-  left: .5em;
+  left: 0.5em;
 }
 
 .ol-full-screen {
-  right: .5em;
-  top: .5em;
+  right: 0.5em;
+  top: 0.5em;
 }
 
 .ol-control button {
@@ -1844,7 +1856,7 @@ input[type='file']:focus {
   text-align: center;
   height: 1.375em;
   width: 1.375em;
-  line-height: .4em;
+  line-height: 0.4em;
   background-color: var(--ol-background-color);
   border: none;
   border-radius: 2px;
@@ -1890,8 +1902,8 @@ input[type='file']:focus {
 
 .ol-attribution {
   text-align: right;
-  bottom: .5em;
-  right: .5em;
+  bottom: 0.5em;
+  right: 0.5em;
   max-width: calc(100% - 1.3em);
   display: flex;
   flex-flow: row-reverse;
@@ -1905,7 +1917,7 @@ input[type='file']:focus {
 
 .ol-attribution ul {
   margin: 0;
-  padding: 1px .5em;
+  padding: 1px 0.5em;
   color: var(--ol-foreground-color);
   text-shadow: 0 0 2px var(--ol-background-color);
   font-size: 12px;
@@ -1917,7 +1929,7 @@ input[type='file']:focus {
 }
 
 .ol-attribution li:not(:last-child):after {
-  content: " ";
+  content: ' ';
 }
 
 .ol-attribution img {
@@ -1945,7 +1957,7 @@ input[type='file']:focus {
 }
 
 .ol-attribution.ol-uncollapsible img {
-  margin-top: -.2em;
+  margin-top: -0.2em;
   max-height: 1.6em;
 }
 
@@ -1955,7 +1967,7 @@ input[type='file']:focus {
 
 .ol-zoomslider {
   top: 4.5em;
-  left: .5em;
+  left: 0.5em;
   height: 200px;
 }
 
@@ -2016,4 +2028,3 @@ input[type='file']:focus {
 .ol-overviewmap .ol-viewport:hover {
   cursor: pointer;
 }
-
