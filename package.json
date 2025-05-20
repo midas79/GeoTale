@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "start-dev": "webpack serve --config webpack.dev.js",
-    "serve": "http-server dist",
+    "build:github": "cross-env NODE_ENV=production DEPLOY_ENV=github webpack --config webpack.prod.js",
+    "start-prod": "http-server dist",
     "format": "prettier --write ."
   },
   "keywords": [],
@@ -16,6 +16,7 @@
     "babel-loader": "^10.0.0",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^13.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
     "http-server": "^14.1.1",
@@ -26,16 +27,19 @@
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0",
     "webpack-merge": "^6.0.1",
-    "workbox-webpack-plugin": "^7.3.0"
+    "workbox-background-sync": "^7.3.0",
+    "workbox-cacheable-response": "^7.3.0",
+    "workbox-expiration": "^7.3.0",
+    "workbox-precaching": "^7.3.0",
+    "workbox-routing": "^7.3.0",
+    "workbox-strategies": "^7.3.0",
+    "workbox-webpack-plugin": "^7.3.0",
+    "workbox-window": "^7.3.0"
   },
   "dependencies": {
     "idb": "^8.0.3",
     "ol": "^10.5.0",
     "sweetalert2": "^11.20.0",
-    "web-push": "^3.6.7",
-    "workbox-cacheable-response": "^7.3.0",
-    "workbox-precaching": "^7.3.0",
-    "workbox-routing": "^7.3.0",
-    "workbox-strategies": "^7.3.0"
+    "web-push": "^3.6.7"
   }
 }

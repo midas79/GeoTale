@@ -80,6 +80,7 @@ class NotificationHelper {
       const responseData = await response.json();
       if (responseData.error) throw new Error(responseData.message);
 
+      console.log('Subscribed to push notifications:', responseData);
       return responseData;
     } catch (error) {
       console.error('Error subscribing to push notifications:', error);

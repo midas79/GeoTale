@@ -63,22 +63,38 @@ class Navbar {
             const isSubscribed = await NotificationHelper.isSubscribed();
             if (isSubscribed) {
               await NotificationHelper.unsubscribe();
-              if (window.Swal && typeof window.Swal.fire === 'function') {
+              console.log('Unsubscribed from push notifications.');
+              if (window.Swal?.fire) {
                 window.Swal.fire('Success', 'Notifications have been disabled', 'success');
               } else {
                 Navbar._showToast('Notifications have been disabled', 'success');
               }
             } else {
               await NotificationHelper.subscribe();
-              if (window.Swal && typeof window.Swal.fire === 'function') {
+              console.log('Successfully subscribed to push notifications.');
+
+              // Tampilkan notifikasi langsung setelah subscribe
+              const registration = await navigator.serviceWorker.getRegistration();
+              if (registration) {
+                registration.showNotification('Subscribed!', {
+                  body: 'You will now receive GeoTale story updates.',
+                  icon: `${window.location.origin}/icons/icon-192x192.png`,
+                  tag: 'subscription-success',
+                  requireInteraction: true,
+                });
+              }
+
+              if (window.Swal?.fire) {
                 window.Swal.fire('Success', 'Notifications have been enabled', 'success');
               } else {
                 Navbar._showToast('Notifications have been enabled', 'success');
               }
             }
+
             await NotificationHelper.updateSubscriptionButton(notificationButton);
           } catch (error) {
-            if (window.Swal && typeof window.Swal.fire === 'function') {
+            console.error('Subscription error:', error);
+            if (window.Swal?.fire) {
               window.Swal.fire('Error', error.message, 'error');
             } else {
               Navbar._showToast(error.message || 'An error occurred', 'error');

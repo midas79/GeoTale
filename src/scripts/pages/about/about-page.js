@@ -24,6 +24,16 @@ export default class AboutPage {
       <h3>Responsive & Lightweight</h3>
       <p>Designed to work seamlessly across various devices, from mobile to desktop, without compromising performance.</p>
     </div>
+    <div class="card">
+      <i class="fas fa-bell"></i>
+      <h3>Push Notifications</h3>
+      <p>Get real-time updates and notifications about new stories and activities.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-download"></i>
+      <h3>PWA Support</h3>
+      <p>Install this app on your device and use it offline like a native application.</p>
+    </div>
   </div>
 
   <h2 class="section-title">Technologies Used</h2>
@@ -38,13 +48,22 @@ export default class AboutPage {
       <h3>OpenLayers</h3>
       <p>An open-source mapping framework that enables dynamic and accurate location visualization.</p>
     </div>
+    <div class="card">
+      <i class="fas fa-bell"></i>
+      <h3>Push API</h3>
+      <p>Enables push notifications to keep users updated in real-time.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-download"></i>
+      <h3>Progressive Web App (PWA)</h3>
+      <p>Allows the app to be installed and used offline, providing a native-like experience.</p>
+    </div>
   </div>
 
   <div class="about-footer">
     <p>Developed by Dionysus. Contact me if you have suggestions or questions.</p>
   </div>
 </section>
-
     `;
   }
 

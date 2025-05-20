@@ -345,44 +345,79 @@ header {
   margin-bottom: 20px;
 }
 
+/* Card List Responsive Grid */
 .card-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 24px;
   justify-content: center;
+  margin-bottom: 40px;
 }
 
 .card {
-  flex: 1 1 280px;
-  background-color: #f9fafb;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
+  flex: 1 1 220px;
+  max-width: 260px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(49, 130, 206, 0.08);
+  padding: 28px 20px;
+  text-align: center;
+  transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(49, 130, 206, 0.14);
 }
 
 .card i {
-  font-size: 1.8rem;
-  color: #2563eb;
-  margin-bottom: 12px;
-  display: inline-block;
+  font-size: 2.2rem;
+  color: #3182ce;
+  margin-bottom: 14px;
+  display: block;
 }
 
 .card h3 {
-  font-size: 1.2rem;
-  color: #111827;
-  margin-bottom: 8px;
+  font-size: 1.15rem;
+  color: #22223b;
+  margin-bottom: 10px;
+  font-weight: 700;
 }
 
 .card p {
-  font-size: 0.95rem;
-  color: #4b5563;
-  line-height: 1.5;
+  font-size: 0.98rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2rem;
+  color: #2563eb;
+  margin: 48px 0 28px 0;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Responsive for mobile */
+@media (max-width: 700px) {
+  .card-list {
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 98vw;
+    width: 100%;
+    padding: 22px 10px;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    margin: 32px 0 18px 0;
+  }
 }
 
 .about-footer {
@@ -1662,6 +1697,35 @@ input[type='file']:focus {
   background: linear-gradient(90deg, #dc2626 0%, #f87171 100%);
 }
 
+/* Add to your styles.css */
+.offline-notice {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px 20px;
+  text-align: center;
+  z-index: 9999;
+  display: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.offline-notice__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.offline-notice__icon {
+  font-size: 1.5rem;
+}
+
+.offline-notice__text {
+  font-weight: 500;
+}
 :root,
 :host {
   --ol-background-color: white;

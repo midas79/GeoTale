@@ -13,6 +13,7 @@ import VectorSource from 'ol/source/Vector';
 import Database from '../../data/database';
 import StoryAPI from '../../data/api';
 import { isStorySaved } from '../../data/database';
+import { getResourcePath } from '../../utils/path-utils';
 
 class StoryDetailPage {
   #presenter = null;
@@ -86,7 +87,6 @@ class StoryDetailPage {
                 }
                 
             `;
-      // after contentContainer.innerHTML = ...;
 
       const bookmarkButton = document.getElementById('bookmark-button');
       if (bookmarkButton) {
@@ -94,12 +94,12 @@ class StoryDetailPage {
           const isSaved = await isStorySaved(storyId);
 
           if (!isSaved) {
-            await Database.saveStory({ ...story, isCached: false }); // call from Database
+            await Database.saveStory({ ...story, isCached: false });
             const registration = await navigator.serviceWorker.getRegistration();
             if (registration) {
               registration.showNotification('Story Saved', {
                 body: `"${story.name}" has been saved to your bookmarks.`,
-                icon: `${window.location.origin}/GeoTale/icons/icon-192x192.png`,
+                icon: `${window.location.origin}${getResourcePath('icons/icon-192x192.png')}`,
                 tag: 'story-saved',
               });
             }
@@ -118,7 +118,7 @@ class StoryDetailPage {
             if (registration) {
               registration.showNotification('Bookmark Removed', {
                 body: `"${story.name}" has been removed from your bookmarks.`,
-                icon: `${window.location.origin}/GeoTale/icons/icon-192x192.png`,
+                icon: `${window.location.origin}${getResourcePath('icons/icon-192x192.png')}`,
                 tag: 'story-removed',
               });
             }
@@ -144,7 +144,6 @@ class StoryDetailPage {
           const isSaved = await isStorySaved(storyId);
 
           if (!isSaved) {
-            // Use SweetAlert2 for a nicer alert
             import('sweetalert2').then(Swal => {
               Swal.default.fire({
                 icon: 'info',
@@ -158,13 +157,17 @@ class StoryDetailPage {
 
           const registration = await navigator.serviceWorker.getRegistration();
           if (registration) {
-            registration.showNotification('Story Saved', {
+            registration.showNotification('Story Reminder', {
               body: `"${story.name}" has been saved to your bookmarks.`,
-              icon: `${window.location.origin}/GeoTale/icons/icon-192x192.png`,
-              tag: 'story-saved',
+              icon: `${window.location.origin}${getResourcePath('icons/icon-192x192.png')}`,
+              tag: `story-${story.id}-notify`,
+              requireInteraction: true,
             });
+            console.log('Notification triggered for story:', story.name);
+          } else {
+            console.warn('No service worker registration found.');
           }
-          // Show SweetAlert2 notification as well
+
           import('sweetalert2').then(Swal => {
             Swal.default.fire({
               icon: 'success',
